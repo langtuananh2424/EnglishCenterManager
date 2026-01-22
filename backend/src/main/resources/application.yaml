@@ -1,3 +1,56 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api # Prefix cho tất cả API (VD: /api/auth/login)
+
 spring:
   application:
-    name: backend
+    name: EnglishCenterSystem
+
+  # --- Cấu hình MySQL (Dữ liệu cấu trúc: User, Employee)  ---
+  datasource:
+    url: jdbc:mysql://localhost:3307/english_center_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: root123456 # Khớp với MYSQL_ROOT_PASSWORD trong docker-compose
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update # Tự động cập nhật Schema khi sửa Entity (Dev only)
+    show-sql: true # Hiển thị câu SQL để debug
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  # --- Cấu hình MongoDB (Dữ liệu động: Student, Grades)  ---
+  data:
+    mongodb:
+      uri: mongodb://admin:admin123456@localhost:27017/english_center_db?authSource=admin
+      auto-index-creation: true
+
+  # --- Cấu hình Security & OAuth2 [cite: 8, 56] ---
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID:nhap_client_id_cua_ban_o_day}
+            client-secret: ${GOOGLE_CLIENT_SECRET:nhap_client_secret_cua_ban_o_day}
+            scope:
+              - email
+              - profile
+
+# --- Cấu hình JWT (Token) ---
+app:
+  jwt:
+    secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970 # Chuỗi Key mẫu (HMAC-SHA 512 bit)
+    expiration-ms: 86400000 # 24 giờ
+
+# --- Cấu hình Swagger UI (Tài liệu API) [cite: 35] ---
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
