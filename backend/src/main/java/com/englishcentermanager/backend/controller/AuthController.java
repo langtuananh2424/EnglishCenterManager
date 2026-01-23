@@ -1,4 +1,4 @@
-package com.englishcentermanager.backend.controllers;
+package com.englishcentermanager.backend.controller;
 
 import java.util.HashSet;
 import java.util.List;
@@ -16,7 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import com.englishcentermanager.backend.model.ERole;
+import com.englishcentermanager.backend.enums.ERole;
 import com.englishcentermanager.backend.entity.Role;
 import com.englishcentermanager.backend.entity.User;
 import com.englishcentermanager.backend.dto.auth.request.LoginRequest;

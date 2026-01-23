@@ -1,6 +1,6 @@
 package com.englishcentermanager.backend.repository.jpa;
 
-import com.englishcentermanager.backend.model.ERole;
+import com.englishcentermanager.backend.enums.ERole;
 import com.englishcentermanager.backend.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

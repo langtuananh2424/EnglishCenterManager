@@ -1,7 +1,5 @@
 server:
   port: 8080
-  servlet:
-    context-path: /api # Prefix cho tất cả API (VD: /api/auth/login)
 
 spring:
   application:

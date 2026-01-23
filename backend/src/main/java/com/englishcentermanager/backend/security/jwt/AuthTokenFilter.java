@@ -1,6 +1,6 @@
 package com.englishcentermanager.backend.security.jwt;
 
-import com.englishcentermanager.security.services.UserDetailsServiceImpl;
+import com.englishcentermanager.backend.security.services.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
