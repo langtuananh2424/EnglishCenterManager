@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentRespone {
+public class StudentResponse {
     private String id;
     private String studentCode;
     private String fullName;
@@ -21,10 +21,10 @@ public class StudentRespone {
     private String parentPhone;
     private boolean isActive;
 
-    public StudentRespone() {
+    public StudentResponse() {
     }
 
-    public StudentRespone(String id, String studentCode, String fullName, String email, String phoneNumber, LocalDate dateOfBirth, String gender, String address, String parentName, String parentPhone, boolean isActive) {
+    public StudentResponse(String id, String studentCode, String fullName, String email, String phoneNumber, LocalDate dateOfBirth, String gender, String address, String parentName, String parentPhone, boolean isActive) {
         this.id = id;
         this.studentCode = studentCode;
         this.fullName = fullName;
