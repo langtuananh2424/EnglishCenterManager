@@ -1,5 +1,6 @@
 package com.englishcentermanager.backend.entity;
 
+import com.englishcentermanager.backend.enums.ClassStatus; // Import Enum vừa tạo
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,7 @@ public class ClassRoom {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Class code is required")
+    @NotBlank(message = "Mã lớp học không được để trống")
     @Column(name = "class_code", unique = true, length = 20)
     private String classCode; // VD: IELTS_F_01, COM_02
 
@@ -28,7 +29,7 @@ public class ClassRoom {
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
-    // Liên kết nhiều Lớp học do 1 Giáo viên dạy (Giáo viên là 1 Employee)
+    // Liên kết nhiều Lớp học do 1 Giáo viên dạy
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "teacher_id")
     private Employee teacher; 
@@ -39,6 +40,7 @@ public class ClassRoom {
     @Column(name = "end_date")
     private LocalDate endDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(length = 20)
-    private String status; // VD: "Sắp khai giảng", "Đang học", "Đã kết thúc"
+    private ClassStatus status = ClassStatus.UPCOMING;
 }
