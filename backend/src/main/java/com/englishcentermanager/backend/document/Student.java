@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDate;
 
-@Document(collation = "students")
+@Document(collection = "students")
 public class Student {
     @Id
     private String id;

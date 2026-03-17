@@ -34,6 +34,13 @@ public class StudentController {
         return ResponseEntity.ok(ApiResponse.success(student, "Lấy thông tin học sinh thành công"));
     }
 
+    @PostMapping 
+    @PreAuthorize("hasAnyRole('ADMIN', 'STAFF')")
+    public ResponseEntity<ApiResponse<StudentResponse>> createStudent(@Valid @RequestBody StudentRequest request) {
+        StudentResponse newStudent = studentService.createStudent(request);
+        return ResponseEntity.ok(ApiResponse.success(newStudent, "Thêm học sinh thành công"));
+    }
+
     @PutMapping("/{id}")
     @PreAuthorize("hasAnyRole('ADMIN', STAFF)")
     public ResponseEntity<ApiResponse<StudentResponse>> updateStudent(@PathVariable String id, @Valid @RequestBody StudentRequest request) {
