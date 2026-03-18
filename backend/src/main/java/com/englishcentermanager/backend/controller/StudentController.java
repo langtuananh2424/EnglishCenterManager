@@ -1,11 +1,9 @@
 package com.englishcentermanager.backend.controller;
 
-import com.englishcentermanager.backend.document.Student;
 import com.englishcentermanager.backend.dto.common.ApiResponse;
 import com.englishcentermanager.backend.dto.student.StudentRequest;
 import com.englishcentermanager.backend.dto.student.StudentResponse;
 import com.englishcentermanager.backend.service.IStudentService;
-import io.swagger.v3.core.util.ApiResponsesDeserializer;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

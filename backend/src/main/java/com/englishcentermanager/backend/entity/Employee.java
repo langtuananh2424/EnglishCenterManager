@@ -1,6 +1,5 @@
 package com.englishcentermanager.backend.entity;
 
-import com.englishcentermanager.backend.entity.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
